@@ -1,7 +1,6 @@
 const music = document.getElementById("music");
 let startedMusic = false;
 
-// 🎵 Activar música al primer click
 document.body.addEventListener("click", () => {
   if (!startedMusic) {
     music.play();
@@ -9,32 +8,52 @@ document.body.addEventListener("click", () => {
   }
 });
 
-// ⏳ Conteo corto (10 segundos)
-let timeLeft = 10;
 const countdown = document.getElementById("countdown");
 const btn = document.getElementById("continueBtn");
 const hint = document.getElementById("hint");
 
-const timer = setInterval(() => {
-  timeLeft--;
-  countdown.innerText = `00:${timeLeft < 10 ? "0" : ""}${timeLeft}`;
+const targetDate = new Date("2025-12-25T00:00:00-05:00");
 
-  if (timeLeft <= 0) {
-    clearInterval(timer);
-    countdown.innerText = "00:00";
+function checkBogotaTime() {
+  const now = new Date();
+  const bogotaNow = new Date(
+    new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Bogota",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false
+    }).format(now).replace(",", "")
+  );
+
+  if (bogotaNow >= targetDate) {
     btn.disabled = false;
     btn.classList.add("active");
+    countdown.innerText = "¡Feliz Navidad! 🎄✨";
     hint.innerText = "Ya es momento… haz clic 💝";
+    clearInterval(timer);
+  } else {
+    const diff = targetDate - bogotaNow;
+    const h = Math.floor(diff / (1000 * 60 * 60));
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    countdown.innerText = `${h}h ${m}m ${s}s`;
   }
-}, 1000);
+}
 
-// ➡️ Continuar a regalo
+const timer = setInterval(checkBogotaTime, 1000);
+checkBogotaTime();
+
+/* ➡️ Continuar */
 btn.addEventListener("click", () => {
   document.getElementById("countdownSection").classList.remove("active");
   document.getElementById("giftSection").classList.add("active");
 });
 
-// 🎁 Abrir regalo
+/* 🎁 Abrir regalo */
 const gift = document.getElementById("giftBox");
 gift.addEventListener("click", () => {
   gift.classList.add("open");
@@ -46,13 +65,13 @@ gift.addEventListener("click", () => {
   }, 1000);
 });
 
-// ✍️ Carta typewriter
+/* ✍️ Carta */
 const message = `
 Ana Maria Vr,
 
 Gracias por llegar a mi vida y hacerla más bonita.
-Cada momento contigo es un regalo que valoro más
-de lo que las palabras pueden decir.
+Cada momento contigo es un regalo que valoro
+más de lo que las palabras pueden decir.
 
 Que esta Navidad esté llena de amor,
 sonrisas y nuevos recuerdos juntos.
@@ -63,7 +82,6 @@ Feliz Navidad ❤️
 function writeLetter() {
   const letter = document.getElementById("letter");
   let i = 0;
-
   const writer = setInterval(() => {
     letter.innerHTML += message.charAt(i);
     i++;
