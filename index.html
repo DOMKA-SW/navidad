@@ -2,16 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Mi regalo de Navidad 🎄</title>
+  <title>Un regalo para ti 🎄</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- 🎵 Música -->
 <audio id="music" loop>
   <source src="assets/musica.mp3" type="audio/mpeg">
 </audio>
@@ -19,36 +17,47 @@
 <!-- ❄️ Nieve -->
 <div class="snow"></div>
 
-<!-- 🕐 FASE 1: CONTEO -->
+<!-- ⏰ INICIO -->
 <section id="countdownSection" class="section active">
   <h1>Ana Maria Vr 💖</h1>
+
   <p class="subtitle">Estoy esperando el momento perfecto…</p>
 
-  <div id="countdown">00:10</div>
+  <p class="subtitle headphones">
+    🎧 Recomendación: usa auriculares para una mejor experiencia
+  </p>
+
+  <div id="countdown">Esperando la medianoche…</div>
 
   <button id="continueBtn" disabled>Continuar 🎁</button>
-  <p id="hint">Disponible cuando llegue el momento…</p>
+  <p id="hint">Disponible a las 12:00 AM 🎄</p>
 </section>
 
-<!-- 🎁 FASE 2: REGALO -->
+<!-- 🎁 REGALO -->
 <section id="giftSection" class="section">
-  <h1>Este regalo es solo para ti 🎄</h1>
+  <h1>Este regalo es solo para ti</h1>
 
   <div class="gift" id="giftBox">
-    <div class="lid"></div>
-    <div class="box"></div>
-    <div class="ribbon-v"></div>
-    <div class="ribbon-h"></div>
+    <div class="gift-lid"></div>
+    <div class="gift-box"></div>
+
+    <div class="ribbon-vertical"></div>
+    <div class="ribbon-horizontal"></div>
+
+    <div class="bow">
+      <span></span>
+      <span></span>
+    </div>
   </div>
 
   <p class="subtitle">Haz clic para abrirlo 💝</p>
 </section>
 
-<!-- 💌 FASE 3: CARTA -->
+<!-- 💌 CARTA -->
 <section id="letterSection" class="section">
   <h1>Para ti, Ana Maria Vr ❤️</h1>
 
-  <img src="assets/foto.jpg" alt="Nosotros" class="photo" />
+  <img src="assets/foto.jpg" class="photo" alt="Nosotros">
 
   <div id="letter"></div>
 </section>
