@@ -12,7 +12,7 @@ const countdown = document.getElementById("countdown");
 const btn = document.getElementById("continueBtn");
 const hint = document.getElementById("hint");
 
-const targetDate = new Date("2025-12-24T00:00:00-05:00");
+const targetDate = new Date("2025-12-25T00:00:00-05:00");
 //const targetDate = new Date(Date.now() + 15000); // +15 segundos
 
 function checkBogotaTime() {
