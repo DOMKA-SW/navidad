@@ -1,1 +1,154 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
 
+body {
+  background: radial-gradient(circle at top, #1b2735, #090a0f);
+  color: #fff;
+  overflow: hidden;
+}
+
+.section {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.section.active {
+  display: flex;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+/* ⏳ Countdown */
+#countdown {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+/* 🔘 Botón */
+button {
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  background: #e63946;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button.active {
+  opacity: 1;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* 🎁 Regalo */
+.gift {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 30px auto;
+  cursor: pointer;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  background: #c1121f;
+  border-radius: 10px;
+}
+
+.lid {
+  position: absolute;
+  top: -30px;
+  width: 100%;
+  height: 40px;
+  background: #780000;
+  border-radius: 10px;
+  transition: 0.8s;
+}
+
+.ribbon-v, .ribbon-h {
+  position: absolute;
+  background: gold;
+}
+
+.ribbon-v {
+  width: 20px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ribbon-h {
+  height: 20px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.gift.open .lid {
+  transform: rotate(-25deg) translateY(-40px);
+}
+
+/* 📸 Foto */
+.photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  margin: 20px 0;
+}
+
+/* 💌 Carta */
+#letter {
+  max-width: 500px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ❄️ Nieve simple */
+.snow::after {
+  content: "❄ ❅ ❆ ❄ ❅ ❆";
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  text-align: center;
+  opacity: 0.2;
+}
