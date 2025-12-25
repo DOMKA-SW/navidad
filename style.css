@@ -2,12 +2,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
   background: radial-gradient(circle at top, #1b2735, #090a0f);
-  color: #fff;
+  color: white;
   overflow: hidden;
 }
 
@@ -15,8 +15,8 @@ body {
   display: none;
   height: 100vh;
   width: 100vw;
-  padding: 20px;
   text-align: center;
+  padding: 20px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -34,23 +34,27 @@ h1 {
 
 .subtitle {
   opacity: 0.85;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-/* ⏳ Countdown */
+.headphones {
+  font-size: 0.9rem;
+}
+
+/* ⏰ Countdown */
 #countdown {
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin: 20px 0;
 }
 
 /* 🔘 Botón */
 button {
-  padding: 12px 30px;
-  font-size: 1rem;
+  padding: 12px 32px;
   border-radius: 30px;
   border: none;
   background: #e63946;
   color: white;
+  font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -61,7 +65,6 @@ button:disabled {
 }
 
 button.active {
-  opacity: 1;
   animation: pulse 1.5s infinite;
 }
 
@@ -71,84 +74,108 @@ button.active {
   100% { transform: scale(1); }
 }
 
-/* 🎁 Regalo */
+/* 🎁 REGALO MEJORADO */
 .gift {
   position: relative;
-  width: 180px;
-  height: 180px;
-  margin: 30px auto;
+  width: 200px;
+  height: 200px;
+  margin: 40px auto;
   cursor: pointer;
-  animation: float 2s ease-in-out infinite;
+  animation: float 2.5s ease-in-out infinite;
 }
 
 @keyframes float {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
 }
 
-.box {
+.gift-box {
+  position: absolute;
+  bottom: 0;
   width: 100%;
+  height: 150px;
+  background: linear-gradient(135deg, #c1121f, #9b111e);
+  border-radius: 12px;
+}
+
+.gift-lid {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(135deg, #780000, #5f0000);
+  border-radius: 12px;
+  transition: 0.8s ease;
+  z-index: 3;
+}
+
+/* 🎀 Cintas */
+.ribbon-vertical {
+  position: absolute;
+  width: 22px;
   height: 100%;
-  background: #c1121f;
-  border-radius: 10px;
-}
-
-.lid {
-  position: absolute;
-  top: -30px;
-  width: 100%;
-  height: 40px;
-  background: #780000;
-  border-radius: 10px;
-  transition: 0.8s;
-}
-
-.ribbon-v, .ribbon-h {
-  position: absolute;
   background: gold;
-}
-
-.ribbon-v {
-  width: 20px;
-  height: 100%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
 }
 
-.ribbon-h {
-  height: 20px;
+.ribbon-horizontal {
+  position: absolute;
+  height: 22px;
   width: 100%;
-  top: 50%;
+  background: gold;
+  top: 55%;
   transform: translateY(-50%);
+  z-index: 2;
 }
 
-.gift.open .lid {
-  transform: rotate(-25deg) translateY(-40px);
+/* 🎀 Moño */
+.bow {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 4;
+}
+
+.bow span {
+  width: 28px;
+  height: 18px;
+  background: gold;
+  border-radius: 50% 50% 0 0;
+}
+
+/* 🎁 Abierto */
+.gift.open .gift-lid {
+  transform: rotate(-25deg) translate(-20px, -40px);
 }
 
 /* 📸 Foto */
 .photo {
-  width: 220px;
-  height: 220px;
+  width: 230px;
+  height: 230px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 20px rgba(255,255,255,0.3);
   margin: 20px 0;
+  box-shadow: 0 0 25px rgba(255,255,255,0.35);
 }
 
 /* 💌 Carta */
 #letter {
-  max-width: 500px;
+  max-width: 520px;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* ❄️ Nieve simple */
 .snow::after {
-  content: "❄ ❅ ❆ ❄ ❅ ❆";
+  content: "❄ ❅ ❆ ❄ ❅ ❆ ❄ ❅ ❆";
   position: absolute;
-  top: -50px;
   width: 100%;
+  top: -40px;
   text-align: center;
-  opacity: 0.2;
+  opacity: 0.15;
 }
